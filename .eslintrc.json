@@ -2,6 +2,10 @@
     "extends": ["airbnb", "prettier"],
     "plugins": ["prettier"],
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": ["error", {"singleQuote": true, "parser": "flow"}]
+    },
+    "env": {
+        "browser": true
     }
+    
 }
