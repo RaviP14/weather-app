@@ -4,4 +4,6 @@ import { getWeather } from './weather';
 can also get longetude and lat form this json file so we can use in other api for hourly forcast */
 // try weather.js function then delete below function.
 
-getWeather.temp1('london', 'metric');
+getWeather.temp1('london', 'metric').then((data) => {
+  console.log(data);
+});
