@@ -16,6 +16,13 @@ can also get longetude and lat form this json file so we can use in other api fo
       });
       getData.dataProcess(data, 'coord').then((value) => {
         console.log(value);
+        const latitude = value.lat;
+        const longitude = value.lon;
+        getWeather
+          .temp2(latitude, longitude, 'metric', 'minutely')
+          .then((forecast) => {
+            console.log(forecast);
+          });
       });
       getData.dataProcess(data, 'sys').then((value) => {
         console.log(value);
