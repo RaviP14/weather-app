@@ -1,4 +1,4 @@
-import { getWeather } from './weather';
+import getWeather from './weather';
 import getData from './data';
 import elements from './elements';
 /* should work fine in weather.js babel had an issue, need location & units for Celcius & fahrenheit

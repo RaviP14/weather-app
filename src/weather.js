@@ -48,4 +48,4 @@ const getWeather = (() => {
   };
 })();
 
-export { getWeather };
+export default getWeather;
