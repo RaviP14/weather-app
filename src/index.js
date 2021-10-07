@@ -1,9 +1,8 @@
 import getWeather from './weather';
 import getData from './data';
 import elements from './elements';
-/* should work fine in weather.js babel had an issue, need location & units for Celcius & fahrenheit
-can also get longetude and lat form this json file so we can use in other api for hourly forcast */
-// try weather.js function then delete below function.
+import buildTable from './table';
+// test and add build table to the 2nd api(hourly forecast) & add a table to index.html
 (() => {
   elements.locate.addEventListener('click', (e) => {
     e.preventDefault();
@@ -12,6 +11,7 @@ can also get longetude and lat form this json file so we can use in other api fo
 
     getWeather.temp1(string, 'metric').then((data) => {
       console.log(data);
+
       getData.dataProcess(data, 'main').then((value) => {
         console.log(value);
         elements.cityTemp.textContent = value.temp;
@@ -23,10 +23,17 @@ can also get longetude and lat form this json file so we can use in other api fo
         console.log(value);
         const latitude = value.lat;
         const longitude = value.lon;
+        // Api call for daily & hourly forecasts.
         getWeather
           .temp2(latitude, longitude, 'metric', 'minutely')
           .then((forecast) => {
             console.log(forecast);
+            getData.dataProcess(forecast, 'hourly').then((hours) => {
+              const table = elements.tableHours;
+              console.log(hours);
+              // filter hours based on current hour of day then pass through to table1 function.
+              buildTable.table1(table, hours, 'temp');
+            });
           });
       });
       getData.dataProcess(data, 'sys').then((value) => {
