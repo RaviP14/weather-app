@@ -1,10 +1,28 @@
+import getData from './data';
+
 const buildTable = (() => {
   // make async function
   function newTable(table, array, key) {
     const row = table.insertRow(0);
-    array.forEach((element) => {
-      const val = row.insertCell();
-      val.textContent = element[key];
+    const row2 = table.insertRow(1);
+    const currentTime = getData.hourNow();
+    let time = getData.hourNow();
+    const weatherArr = getData.weatherFrom(array, time);
+    weatherArr.then((value) => {
+      value.forEach((element) => {
+        const val1 = row.insertCell();
+        if (time === currentTime) {
+          val1.textContent = 'Now';
+        } else if (time <= 24) {
+          val1.textContent = time;
+        } else {
+          time = 0;
+          val1.textContent = time;
+        }
+        const val2 = row2.insertCell();
+        val2.textContent = element[key];
+        time += 1;
+      });
     });
   }
 
