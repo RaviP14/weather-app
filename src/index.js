@@ -28,6 +28,7 @@ import buildTable from './table';
           .temp2(latitude, longitude, 'metric', 'minutely')
           .then((forecast) => {
             console.log(forecast);
+            // filter for hourly data.
             getData.dataProcess(forecast, 'hourly').then((hours) => {
               const table = elements.tableHours;
               console.log(hours);
@@ -44,7 +45,6 @@ import buildTable from './table';
         elements.cityText.textContent = value;
       });
     });
-
     elements.locationForm.reset();
   });
 })();
