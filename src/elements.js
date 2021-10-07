@@ -24,6 +24,8 @@ const elements = (() => {
   const minTemp = document.getElementById('minTemp');
   const cityMinTemp = minTemp;
 
+  const table1 = document.getElementById('tableHours');
+  const tableHours = table1;
   return {
     locate,
     location,
@@ -33,6 +35,7 @@ const elements = (() => {
     feelsLikeTemp,
     cityMaxTemp,
     cityMinTemp,
+    tableHours,
   };
 })();
 
