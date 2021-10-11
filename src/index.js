@@ -31,10 +31,10 @@ import buildTable from './table';
             // filter for hourly data.
             getData.dataProcess(forecast, 'hourly').then((hours) => {
               const table = elements.tableHours;
-              console.log(hours);
               // filter hours based on current hour of day then pass through to table1 function.
               buildTable.table1(table, hours, 'temp');
             });
+            // filer for daily data.
           });
       });
       getData.dataProcess(data, 'sys').then((value) => {
