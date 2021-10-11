@@ -24,18 +24,22 @@ import buildTable from './table';
         const latitude = value.lat;
         const longitude = value.lon;
         // Api call for daily & hourly forecasts.
-        getWeather
-          .temp2(latitude, longitude, 'metric', 'minutely')
-          .then((forecast) => {
-            console.log(forecast);
-            // filter for hourly data.
-            getData.dataProcess(forecast, 'hourly').then((hours) => {
-              const table = elements.tableHours;
-              // filter hours based on current hour of day then pass through to table1 function.
-              buildTable.table1(table, hours, 'temp');
-            });
-            // filer for daily data.
+        const weatherInfo = getWeather.temp2(
+          latitude,
+          longitude,
+          'metric',
+          'minutely'
+        );
+        weatherInfo.then((forecast) => {
+          console.log(forecast);
+          // filter for hourly data.
+          getData.dataProcess(forecast, 'hourly').then((hours) => {
+            const table = elements.tableHours;
+            // filter hours based on current hour of day then pass through to table1 function.
+            buildTable.table1(table, hours, 'temp');
           });
+          // filer for daily data.
+        });
       });
       getData.dataProcess(data, 'sys').then((value) => {
         console.log(value);
