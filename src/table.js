@@ -23,7 +23,7 @@ const buildTable = (() => {
           val1.textContent = time;
         }
         const val2 = row2.insertCell();
-        val2.textContent = element[key];
+        val2.textContent = Math.round(element[key]);
         time += 1;
       });
     });
@@ -70,11 +70,14 @@ const buildTable = (() => {
         }
 
         const val2 = row.insertCell();
-        val2.textContent = element[key1];
+        // Chance of rain
+        val2.textContent = `${Math.floor((element[key1] / 1) * 100)}%`;
         const val3 = row.insertCell();
-        val3.textContent = element[key2][key3];
+        // Min temp
+        val3.textContent = Math.round(element[key2][key3]);
         const val4 = row.insertCell();
-        val4.textContent = element[key2][key4];
+        // Max temp
+        val4.textContent = Math.round(element[key2][key4]);
       });
     });
   }
