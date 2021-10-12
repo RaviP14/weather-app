@@ -1,6 +1,7 @@
 import getData from './data';
 
 const buildTable = (() => {
+  // Table for hourly data.
   function newTable(table, array, key) {
     const row = table.insertRow(0);
     const row2 = table.insertRow(1);
@@ -37,11 +38,14 @@ const buildTable = (() => {
       return err;
     }
   }
-
+  // Table for daily data.
   function newTableDays(table, array, key1, key2, key3, key4) {
+    const currentDay = getData.today();
+    let day = getData.today();
+    const arrDays = getData.weekdays;
     const headings = table.insertRow(0);
     const head1 = headings.insertCell();
-    head1.textContent = 'Day';
+    head1.textContent = 'day';
 
     const head2 = headings.insertCell();
     head2.textContent = 'Chance Of Rain';
@@ -55,7 +59,18 @@ const buildTable = (() => {
     array.forEach((element) => {
       const row = table.insertRow();
       const val1 = row.insertCell();
-      val1.textContent = 'day'; // list of days array
+
+      if (day > 6) {
+        day = 0;
+        val1.textContent = arrDays[day];
+      } else if (currentDay === day) {
+        val1.textContent = 'Today';
+        day += 1;
+      } else {
+        val1.textContent = arrDays[day];
+        day += 1;
+      }
+
       const val2 = row.insertCell();
       val2.textContent = element[key1];
       const val3 = row.insertCell();

@@ -20,7 +20,7 @@ const getData = (() => {
     const time = getHours();
     return time;
   }
-  // filter hours array to give temp from current hour.
+  // filter hours/days array to give temp from current hour or day.
   function filterArray(array, hour) {
     const filteredArr = array.filter((_, index) => index >= hour);
     return filteredArr;
