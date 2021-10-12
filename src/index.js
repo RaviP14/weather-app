@@ -32,13 +32,21 @@ import buildTable from './table';
         );
         weatherInfo.then((forecast) => {
           console.log(forecast);
-          // filter for hourly data.
+          // Filter for hourly data.
           getData.dataProcess(forecast, 'hourly').then((hours) => {
             const table = elements.tableHours;
-            // filter hours based on current hour of day then pass through to table1 function.
+            // Create hourly table.
             buildTable.table1(table, hours, 'temp');
           });
-          // filer for daily data.
+        });
+        weatherInfo.then((forecast) => {
+          // Filter for daily data.
+          getData.dataProcess(forecast, 'daily').then((days) => {
+            console.log(days);
+            const table = elements.tableDays;
+            // Create daily table.
+            buildTable.table2(table, days, 'pop', 'temp', 'min', 'max');
+          });
         });
       });
       getData.dataProcess(data, 'sys').then((value) => {
