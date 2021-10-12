@@ -26,6 +26,9 @@ const elements = (() => {
 
   const table1 = document.getElementById('tableHours');
   const tableHours = table1;
+
+  const table2 = document.getElementById('tableDays');
+  const tableDays = table2;
   return {
     locate,
     location,
@@ -36,6 +39,7 @@ const elements = (() => {
     cityMaxTemp,
     cityMinTemp,
     tableHours,
+    tableDays,
   };
 })();
 
