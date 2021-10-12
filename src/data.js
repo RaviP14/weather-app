@@ -30,10 +30,35 @@ const getData = (() => {
     const finalArr = await filterArray(array, hour);
     return finalArr;
   }
+  // Get current Day.
+  function getDay() {
+    const date = new Date();
+    const day = date.getDay();
+    return day;
+  }
+
+  function today() {
+    const day = getDay();
+    return day;
+  }
+
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+
+  const weekdays = days;
   return {
     dataProcess,
     hourNow,
     weatherFrom,
+    today,
+    weekdays,
   };
 })();
 
