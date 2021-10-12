@@ -22,12 +22,16 @@ import buildTable from './table';
 
       getData.dataProcess(data, 'main').then((value) => {
         console.log(value);
-        elements.cityTemp.textContent = Math.round(value.temp);
+        elements.cityTemp.textContent = `${Math.round(value.temp)}\u00B0`;
         elements.feelsLikeTemp.textContent = `Feels like: ${Math.round(
           value.feels_like
-        )}`;
-        elements.cityMaxTemp.textContent = `Max: ${Math.round(value.temp_max)}`;
-        elements.cityMinTemp.textContent = `Min: ${Math.round(value.temp_min)}`;
+        )}\u00B0`;
+        elements.cityMaxTemp.textContent = `H: ${Math.round(
+          value.temp_max
+        )}\u00B0`;
+        elements.cityMinTemp.textContent = `L: ${Math.round(
+          value.temp_min
+        )}\u00B0`;
       });
       getData.dataProcess(data, 'coord').then((value) => {
         console.log(value);

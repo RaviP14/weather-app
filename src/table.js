@@ -23,7 +23,7 @@ const buildTable = (() => {
           val1.textContent = time;
         }
         const val2 = row2.insertCell();
-        val2.textContent = Math.round(element[key]);
+        val2.textContent = `${Math.round(element[key])}\u00B0`;
         time += 1;
       });
     });
@@ -74,10 +74,10 @@ const buildTable = (() => {
         val2.textContent = `${Math.floor((element[key1] / 1) * 100)}%`;
         const val3 = row.insertCell();
         // Min temp
-        val3.textContent = Math.round(element[key2][key3]);
+        val3.textContent = `${Math.round(element[key2][key3])}\u00B0`;
         const val4 = row.insertCell();
         // Max temp
-        val4.textContent = Math.round(element[key2][key4]);
+        val4.textContent = `${Math.round(element[key2][key4])}\u00B0`;
       });
     });
   }
