@@ -40,8 +40,7 @@ const buildTable = (() => {
   }
   // Table for daily data.
   function newTableDays(table, array, key1, key2, key3, key4) {
-    const currentDay = getData.today();
-    let day = getData.today();
+    let nextDay = getData.today() + 1;
     const arrDays = getData.weekdays;
     const headings = table.insertRow(0);
     const head1 = headings.insertCell();
@@ -55,28 +54,28 @@ const buildTable = (() => {
 
     const head4 = headings.insertCell();
     head4.textContent = 'Max';
+    // Filter array to remove today figures (conflict between 2 api figures).
+    const dailyArray = getData.weatherFrom(array, 1);
+    dailyArray.then((value) => {
+      value.forEach((element) => {
+        const row = table.insertRow();
+        const val1 = row.insertCell();
 
-    array.forEach((element) => {
-      const row = table.insertRow();
-      const val1 = row.insertCell();
+        if (nextDay > 6) {
+          nextDay = 0;
+          val1.textContent = arrDays[nextDay];
+        } else {
+          val1.textContent = arrDays[nextDay];
+          nextDay += 1;
+        }
 
-      if (day > 6) {
-        day = 0;
-        val1.textContent = arrDays[day];
-      } else if (currentDay === day) {
-        val1.textContent = 'Today';
-        day += 1;
-      } else {
-        val1.textContent = arrDays[day];
-        day += 1;
-      }
-
-      const val2 = row.insertCell();
-      val2.textContent = element[key1];
-      const val3 = row.insertCell();
-      val3.textContent = element[key2][key3];
-      const val4 = row.insertCell();
-      val4.textContent = element[key2][key4];
+        const val2 = row.insertCell();
+        val2.textContent = element[key1];
+        const val3 = row.insertCell();
+        val3.textContent = element[key2][key3];
+        const val4 = row.insertCell();
+        val4.textContent = element[key2][key4];
+      });
     });
   }
 
