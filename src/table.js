@@ -37,8 +37,53 @@ const buildTable = (() => {
       return err;
     }
   }
+
+  function newTableDays(table, array, key1, key2, key3, key4) {
+    const headings = table.insertRow(0);
+    const head1 = headings.insertCell();
+    head1.textContent = 'Day';
+
+    const head2 = headings.insertCell();
+    head2.textContent = 'Chance Of Rain';
+
+    const head3 = headings.insertCell();
+    head3.textContent = 'Min';
+
+    const head4 = headings.insertCell();
+    head4.textContent = 'Max';
+
+    array.forEach((element) => {
+      const row = table.insertRow();
+      const val1 = row.insertCell();
+      val1.textContent = 'day'; // list of days array
+      const val2 = row.insertCell();
+      val2.textContent = element[key1];
+      const val3 = row.insertCell();
+      val3.textContent = element[key2][key3];
+      const val4 = row.insertCell();
+      val4.textContent = element[key2][key4];
+    });
+  }
+
+  async function table2(table, array, key1, key2, key3, key4) {
+    try {
+      const tableDays = await newTableDays(
+        table,
+        array,
+        key1,
+        key2,
+        key3,
+        key4
+      );
+      return tableDays;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  }
   return {
     table1,
+    table2,
   };
 })();
 
