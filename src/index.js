@@ -6,6 +6,14 @@ import buildTable from './table';
 (() => {
   elements.locate.addEventListener('click', (e) => {
     e.preventDefault();
+    if (
+      elements.tableHours.hasChildNodes() &&
+      elements.tableDays.hasChildNodes()
+    ) {
+      elements.tableHours.removeChild(elements.tableHours.firstChild);
+      elements.tableDays.removeChild(elements.tableDays.firstChild);
+    }
+
     const find = elements.location.value;
     const string = find.toLowerCase();
 
@@ -14,10 +22,12 @@ import buildTable from './table';
 
       getData.dataProcess(data, 'main').then((value) => {
         console.log(value);
-        elements.cityTemp.textContent = value.temp;
-        elements.feelsLikeTemp.textContent = `Feels like: ${value.feels_like}`;
-        elements.cityMaxTemp.textContent = `Max: ${value.temp_max}`;
-        elements.cityMinTemp.textContent = `Min: ${value.temp_min}`;
+        elements.cityTemp.textContent = Math.round(value.temp);
+        elements.feelsLikeTemp.textContent = `Feels like: ${Math.round(
+          value.feels_like
+        )}`;
+        elements.cityMaxTemp.textContent = `Max: ${Math.round(value.temp_max)}`;
+        elements.cityMinTemp.textContent = `Min: ${Math.round(value.temp_min)}`;
       });
       getData.dataProcess(data, 'coord').then((value) => {
         console.log(value);
