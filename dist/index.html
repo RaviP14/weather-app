@@ -7,29 +7,37 @@
   <meta charset="UTF-8"/>
 </head>
 <body>
-  <div id="formDiv">
-    <form id="searchForm">
-      <div id="search">
-        <label for="searchInput">Location (city)</label>
-        <input id="searchInput">
-        <button  id="searchbtn"><i class="ri-arrow-right-line"></i></button>
-      </div> 
-    </form>
-  </div>
+  <div id="topbarDiv">
+    <div id="formDiv">
+      <form id="searchForm">
+        <div id="search">
+          <label for="searchInput">Location (city)</label>
+          <input id="searchInput">
+          <button  id="searchbtn"><i class="ri-arrow-right-line"></i></button>
+        </div> 
+      </form>
+    </div>
+    <div id="ctempDiv">
+      <button id="ctempbtn" value="C">&deg;F</button>
+    </div>
+</div>
   <div>
     <div id="location">
       <p id="locationText"></p>
     </div>
     <div id="todayDiv">
-      <p id="todayTemp"></p>
+      <p id="todayTemp" class="degrees"></p>
       <div id="feelsLikeDiv">
-        <p id="feelsLike"></p>
+        <label id="feelsLikeLabel" for="feelsLike">Feels Like</label>
+        <p id="feelsLike" class="degrees"></p>
       </div>
       <div id="maxTempDiv">
-        <p id="maxTemp"></p>
+        <label id="maxTempLabel" for="maxTemp">H:</label>
+        <p id="maxTemp" class="degrees"></p>
       </div>
       <div id="minTempDiv">
-        <p id="minTemp"></p>
+        <label id="minTempLabel"for="minTemp">L:</label>
+        <p id="minTemp" class="degrees"></p>
       </div>
     </div>
   </div>
