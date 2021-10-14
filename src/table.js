@@ -5,28 +5,27 @@ const buildTable = (() => {
   function newTable(table, array, key) {
     const row = table.insertRow(0);
     const row2 = table.insertRow(1);
-    const currentTime = getData.hourNow();
-    let time = getData.hourNow();
+    let currentTime = getData.hourNow();
+    let time = 0;
     let now = true;
-    // Filter array using current time.
-    const weatherArr = getData.weatherFrom(array, time);
-    weatherArr.then((values) => {
-      values.forEach((element) => {
-        const val1 = row.insertCell();
-        if (time === currentTime && now === true) {
-          val1.textContent = 'Now';
-          now = false;
-        } else if (time <= 24) {
-          val1.textContent = time;
-        } else {
-          time = 0;
-          val1.textContent = time;
-        }
-        const val2 = row2.insertCell();
-        val2.textContent = `${Math.round(element[key])}\u00B0`;
-        val2.className = 'degrees';
-        time += 1;
-      });
+
+    array.forEach((element) => {
+      const val1 = row.insertCell();
+      if (time === 0 && now === true) {
+        val1.textContent = 'Now';
+        now = false;
+      } else if (time <= 24 && currentTime <= 24) {
+        val1.textContent = currentTime;
+      } else {
+        time = 0;
+        currentTime = 0;
+        val1.textContent = currentTime;
+      }
+      const val2 = row2.insertCell();
+      val2.textContent = `${Math.round(element[key])}\u00B0`;
+      val2.className = 'degrees';
+      time += 1;
+      currentTime += 1;
     });
   }
 
@@ -65,6 +64,7 @@ const buildTable = (() => {
         if (nextDay > 6) {
           nextDay = 0;
           val1.textContent = arrDays[nextDay];
+          nextDay += 1;
         } else {
           val1.textContent = arrDays[nextDay];
           nextDay += 1;
@@ -73,7 +73,6 @@ const buildTable = (() => {
         const val2 = row.insertCell();
         // Chance of rain
         val2.textContent = `${Math.floor((element[key1] / 1) * 100)}%`;
-        val2.className = 'degrees';
         const val3 = row.insertCell();
         // Min temp
         val3.textContent = `${Math.round(element[key2][key3])}\u00B0`;
