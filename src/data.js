@@ -53,12 +53,34 @@ const getData = (() => {
   ];
 
   const weekdays = days;
+
+  function convertToF(celcius) {
+    const f = celcius * (9 / 5) + 32;
+    return f;
+  }
+
+  function fahrenheit(celcius) {
+    const n = convertToF(celcius);
+    return n;
+  }
+
+  function convertToC(fahren) {
+    const c = (fahren - 32) * (5 / 9);
+    return c;
+  }
+
+  function celc(fahren) {
+    const n = convertToC(fahren);
+    return n;
+  }
   return {
     dataProcess,
     hourNow,
     weatherFrom,
     today,
     weekdays,
+    fahrenheit,
+    celc,
   };
 })();
 
