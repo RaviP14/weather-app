@@ -13,7 +13,7 @@ import buildTable from './table';
       elements.tableHours.removeChild(elements.tableHours.firstChild);
       elements.tableDays.removeChild(elements.tableDays.firstChild);
     }
-
+    // Add this(all below) to a function so event listener is cleaner.
     const find = elements.location.value;
     const string = find.toLowerCase();
 
@@ -23,13 +23,16 @@ import buildTable from './table';
       getData.dataProcess(data, 'main').then((value) => {
         console.log(value);
         elements.cityTemp.textContent = `${Math.round(value.temp)}\u00B0`;
-        elements.feelsLikeTemp.textContent = `Feels like: ${Math.round(
+        elements.feelsLikeLabel.style.display = 'block';
+        elements.feelsLikeTemp.textContent = `${Math.round(
           value.feels_like
         )}\u00B0`;
-        elements.cityMaxTemp.textContent = `H: ${Math.round(
+        elements.maxTempLabel.style.display = 'block';
+        elements.cityMaxTemp.textContent = `${Math.round(
           value.temp_max
         )}\u00B0`;
-        elements.cityMinTemp.textContent = `L: ${Math.round(
+        elements.minTempLabel.style.display = 'block';
+        elements.cityMinTemp.textContent = `${Math.round(
           value.temp_min
         )}\u00B0`;
       });
