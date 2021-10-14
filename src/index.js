@@ -12,6 +12,7 @@ import buildTable from './table';
     ) {
       elements.tableHours.removeChild(elements.tableHours.firstChild);
       elements.tableDays.removeChild(elements.tableDays.firstChild);
+      elements.changeUnit.value = 'C';
     }
     // Add this(all below) to a function so event listener is cleaner.
     const find = elements.location.value;
@@ -75,5 +76,37 @@ import buildTable from './table';
       });
     });
     elements.locationForm.reset();
+  });
+  elements.changeUnit.addEventListener('click', () => {
+    if (
+      elements.tableHours.hasChildNodes() &&
+      elements.tableDays.hasChildNodes()
+    ) {
+      const units = elements.changeUnit;
+      const temp1 = elements.convertTemps;
+      if (units.value === 'C') {
+        const arrTemps = [...temp1];
+        arrTemps.forEach((temp) => {
+          const num = temp.textContent;
+          // Remove degrees symbol & convert to number (figure).
+          const num1 = num.replace(/\D/g, '');
+          const figure = parseInt(num1, 10);
+          const conversion = getData.fahrenheit(figure);
+          temp.textContent = `${Math.round(conversion)}\u00B0`;
+          units.value = 'F';
+        });
+      } else if (units.value === 'F') {
+        const arrTemps = [...temp1];
+        arrTemps.forEach((temp) => {
+          const num = temp.textContent;
+          // Remove degrees symbol & convert to number (figure).
+          const num1 = num.replace(/\D/g, '');
+          const figure = parseInt(num1, 10);
+          const conversion = getData.celc(figure);
+          temp.textContent = `${Math.round(conversion)}\u00B0`;
+          units.value = 'C';
+        });
+      }
+    }
   });
 })();
