@@ -10,8 +10,8 @@ const buildTable = (() => {
     let now = true;
     // Filter array using current time.
     const weatherArr = getData.weatherFrom(array, time);
-    weatherArr.then((value) => {
-      value.forEach((element) => {
+    weatherArr.then((values) => {
+      values.forEach((element) => {
         const val1 = row.insertCell();
         if (time === currentTime && now === true) {
           val1.textContent = 'Now';
@@ -24,6 +24,7 @@ const buildTable = (() => {
         }
         const val2 = row2.insertCell();
         val2.textContent = `${Math.round(element[key])}\u00B0`;
+        val2.className = 'degrees';
         time += 1;
       });
     });
@@ -50,14 +51,14 @@ const buildTable = (() => {
     head2.textContent = 'Chance Of Rain';
 
     const head3 = headings.insertCell();
-    head3.textContent = 'Min';
+    head3.textContent = 'L';
 
     const head4 = headings.insertCell();
-    head4.textContent = 'Max';
+    head4.textContent = 'H';
     // Filter array to remove today figures (conflict between 2 api figures).
     const dailyArray = getData.weatherFrom(array, 1);
-    dailyArray.then((value) => {
-      value.forEach((element) => {
+    dailyArray.then((values) => {
+      values.forEach((element) => {
         const row = table.insertRow();
         const val1 = row.insertCell();
 
@@ -72,12 +73,15 @@ const buildTable = (() => {
         const val2 = row.insertCell();
         // Chance of rain
         val2.textContent = `${Math.floor((element[key1] / 1) * 100)}%`;
+        val2.className = 'degrees';
         const val3 = row.insertCell();
         // Min temp
         val3.textContent = `${Math.round(element[key2][key3])}\u00B0`;
+        val3.className = 'degrees';
         const val4 = row.insertCell();
         // Max temp
         val4.textContent = `${Math.round(element[key2][key4])}\u00B0`;
+        val4.className = 'degrees';
       });
     });
   }
