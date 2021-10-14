@@ -92,8 +92,9 @@ import buildTable from './table';
           const num1 = num.replace(/\D/g, '');
           const figure = parseInt(num1, 10);
           const conversion = getData.fahrenheit(figure);
-          temp.textContent = `${Math.round(conversion)}\u00B0`;
+          temp.textContent = `${Math.round(conversion)}\u00B0`; // eslint-disable-line no-param-reassign
           units.value = 'F';
+          units.textContent = '\u00B0C';
         });
       } else if (units.value === 'F') {
         const arrTemps = [...temp1];
@@ -103,8 +104,9 @@ import buildTable from './table';
           const num1 = num.replace(/\D/g, '');
           const figure = parseInt(num1, 10);
           const conversion = getData.celc(figure);
-          temp.textContent = `${Math.round(conversion)}\u00B0`;
+          temp.textContent = `${Math.round(conversion)}\u00B0`; // eslint-disable-line no-param-reassign
           units.value = 'C';
+          units.textContent = '\u00B0F';
         });
       }
     }
