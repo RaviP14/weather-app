@@ -29,6 +29,24 @@ const elements = (() => {
 
   const table2 = document.getElementById('tableDays');
   const tableDays = table2;
+
+  const tempbtn = document.getElementById('ctempbtn');
+  const changeUnit = tempbtn;
+
+  const labelFeels = document.getElementById('feelsLikeLabel');
+  const feelsLikeLabel = labelFeels;
+  feelsLikeLabel.style.display = 'none';
+
+  const labelMax = document.getElementById('maxTempLabel');
+  const maxTempLabel = labelMax;
+  maxTempLabel.style.display = 'none';
+
+  const labelMin = document.getElementById('minTempLabel');
+  const minTempLabel = labelMin;
+  minTempLabel.style.display = 'none';
+
+  const allTemps = document.getElementsByClassName('degrees');
+  const convertTemps = allTemps;
   return {
     locate,
     location,
@@ -40,6 +58,11 @@ const elements = (() => {
     cityMinTemp,
     tableHours,
     tableDays,
+    changeUnit,
+    feelsLikeLabel,
+    maxTempLabel,
+    minTempLabel,
+    convertTemps,
   };
 })();
 
