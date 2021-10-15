@@ -15,14 +15,26 @@ const elements = (() => {
   const todayTemp = document.getElementById('todayTemp');
   const cityTemp = todayTemp;
 
+  const todayTempF = document.getElementById('todayTempF');
+  const cityTempF = todayTempF;
+
   const feelsLike = document.getElementById('feelsLike');
   const feelsLikeTemp = feelsLike;
+
+  const feelsLikeF = document.getElementById('feelsLikeF');
+  const feelsLikeTempF = feelsLikeF;
 
   const maxTemp = document.getElementById('maxTemp');
   const cityMaxTemp = maxTemp;
 
+  const maxTempF = document.getElementById('maxTempF');
+  const cityMaxTempF = maxTempF;
+
   const minTemp = document.getElementById('minTemp');
   const cityMinTemp = minTemp;
+
+  const minTempF = document.getElementById('minTempF');
+  const cityMinTempF = minTempF;
 
   const table1 = document.getElementById('tableHours');
   const tableHours = table1;
@@ -47,6 +59,9 @@ const elements = (() => {
 
   const allTemps = document.getElementsByClassName('degrees');
   const convertTemps = allTemps;
+
+  const allTempsF = document.getElementsByClassName('fahren');
+  const fahrenTemps = allTempsF;
   return {
     locate,
     location,
@@ -63,6 +78,11 @@ const elements = (() => {
     maxTempLabel,
     minTempLabel,
     convertTemps,
+    fahrenTemps,
+    cityTempF,
+    feelsLikeTempF,
+    cityMaxTempF,
+    cityMinTempF,
   };
 })();
 
