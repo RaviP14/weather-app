@@ -5,6 +5,7 @@ const buildTable = (() => {
   function newTable(table, array, key) {
     const row = table.insertRow(0);
     const row2 = table.insertRow(1);
+    const row3 = table.insertRow(2);
     let currentTime = getData.hourNow();
     let time = 0;
     let now = true;
@@ -23,7 +24,14 @@ const buildTable = (() => {
       }
       const val2 = row2.insertCell();
       val2.textContent = `${Math.round(element[key])}\u00B0`;
-      val2.className = 'degrees';
+      row2.id = 'degreesRow';
+
+      const val2F = row3.insertCell();
+      const f = getData.fahrenheit(Math.round(parseFloat(element[key])));
+      val2F.textContent = `${Math.round(f)}\u00B0`;
+      row3.id = 'fahrenRow';
+      row3.style.display = 'none';
+
       time += 1;
       currentTime += 1;
     });
@@ -59,6 +67,7 @@ const buildTable = (() => {
     dailyArray.then((values) => {
       values.forEach((element) => {
         const row = table.insertRow();
+        row.style.display = 'table-row';
         const val1 = row.insertCell();
 
         if (nextDay > 6) {
@@ -73,14 +82,36 @@ const buildTable = (() => {
         const val2 = row.insertCell();
         // Chance of rain
         val2.textContent = `${Math.floor((element[key1] / 1) * 100)}%`;
+
         const val3 = row.insertCell();
         // Min temp
         val3.textContent = `${Math.round(element[key2][key3])}\u00B0`;
-        val3.className = 'degrees';
+        val3.className = 'degreesColumn';
+        val3.id = 'degreesColumn';
+
+        const val3F = row.insertCell();
+        const f1 = getData.fahrenheit(
+          Math.round(parseFloat(element[key2][key3]))
+        );
+        val3F.textContent = `${Math.round(f1)}\u00B0`;
+        val3F.className = 'fahrenColumn';
+        val3F.id = 'fahrenColumn';
+        val3F.style.display = 'none';
+
         const val4 = row.insertCell();
         // Max temp
         val4.textContent = `${Math.round(element[key2][key4])}\u00B0`;
-        val4.className = 'degrees';
+        val4.className = 'degreesColumn2';
+        val4.id = 'degreesColumn2';
+
+        const val4F = row.insertCell();
+        const f2 = getData.fahrenheit(
+          Math.round(parseFloat(element[key2][key4]))
+        );
+        val4F.textContent = `${Math.round(f2)}\u00B0`;
+        val4F.className = 'fahrenColumn2';
+        val4F.id = 'fahrenColumn2';
+        val4F.style.display = 'none';
       });
     });
   }
