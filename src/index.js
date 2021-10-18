@@ -98,109 +98,12 @@ import buildTable from './table';
       elements.tableDays.hasChildNodes()
     ) {
       const units = elements.changeUnit;
-      const tempC = elements.convertTemps;
-      const tempF = elements.fahrenTemps;
       if (units.value === 'C') {
-        // ***works now will need to do this for everyone of them & reset them when location changed (top of event  listener).
-        const todayTemp = document.getElementById('todayTemp');
-        todayTemp.style.display = 'none';
-
-        const todayTempF = document.getElementById('todayTempF');
-        todayTempF.style.display = 'inline-block';
-
-        const feelsLike = document.getElementById('feelsLike');
-        feelsLike.style.display = 'none';
-
-        const feelsLikeF = document.getElementById('feelsLikeF');
-        feelsLikeF.style.display = 'inline-block';
-
-        const maxTemp = document.getElementById('maxTemp');
-        maxTemp.style.display = 'none';
-
-        const maxTempF = document.getElementById('maxTempF');
-        maxTempF.style.display = 'inline-block';
-
-        const minTemp = document.getElementById('minTemp');
-        minTemp.style.display = 'none';
-
-        const minTempF = document.getElementById('minTempF');
-        minTempF.style.display = 'inline-block';
-
-        const degreesRow = document.getElementById('degreesRow');
-        degreesRow.style.display = 'none';
-
-        const fahrenRow = document.getElementById('fahrenRow');
-        fahrenRow.style.display = 'table-row';
-
-        const numbers = [0, 1, 2, 3, 4, 5, 6];
-        numbers.forEach((num) => {
-          const degreesColumn =
-            document.getElementsByClassName('degreesColumn');
-          degreesColumn[num].style.display = 'none';
-
-          const fahrenColumn = document.getElementsByClassName('fahrenColumn');
-          fahrenColumn[num].style.display = 'table-cell';
-
-          const degreesColumn2 =
-            document.getElementsByClassName('degreesColumn2');
-          degreesColumn2[num].style.display = 'none';
-
-          const fahrenColumn2 =
-            document.getElementsByClassName('fahrenColumn2');
-          fahrenColumn2[num].style.display = 'table-cell';
-        });
-
+        elements.displayF();
         units.value = 'F';
         units.textContent = '\u00B0C';
       } else if (units.value === 'F') {
-        const todayTemp = document.getElementById('todayTemp');
-        todayTemp.style.display = 'inline-block';
-
-        const todayTempF = document.getElementById('todayTempF');
-        todayTempF.style.display = 'none';
-
-        const feelsLike = document.getElementById('feelsLike');
-        feelsLike.style.display = 'inline-block';
-
-        const feelsLikeF = document.getElementById('feelsLikeF');
-        feelsLikeF.style.display = 'none';
-
-        const maxTemp = document.getElementById('maxTemp');
-        maxTemp.style.display = 'inline-block';
-
-        const maxTempF = document.getElementById('maxTempF');
-        maxTempF.style.display = 'none';
-
-        const minTemp = document.getElementById('minTemp');
-        minTemp.style.display = 'inline-block';
-
-        const minTempF = document.getElementById('minTempF');
-        minTempF.style.display = 'none';
-
-        const degreesRow = document.getElementById('degreesRow');
-        degreesRow.style.display = 'table-row';
-
-        const fahrenRow = document.getElementById('fahrenRow');
-        fahrenRow.style.display = 'none';
-
-        const numbers = [0, 1, 2, 3, 4, 5, 6];
-        numbers.forEach((num) => {
-          const degreesColumn =
-            document.getElementsByClassName('degreesColumn');
-          degreesColumn[num].style.display = 'table-cell';
-
-          const fahrenColumn = document.getElementsByClassName('fahrenColumn');
-          fahrenColumn[num].style.display = 'none';
-
-          const degreesColumn2 =
-            document.getElementsByClassName('degreesColumn2');
-          degreesColumn2[num].style.display = 'table-cell';
-
-          const fahrenColumn2 =
-            document.getElementsByClassName('fahrenColumn2');
-          fahrenColumn2[num].style.display = 'none';
-        });
-
+        elements.displayC();
         units.value = 'C';
         units.textContent = '\u00B0F';
       }
