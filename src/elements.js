@@ -62,6 +62,92 @@ const elements = (() => {
 
   const allTempsF = document.getElementsByClassName('fahren');
   const fahrenTemps = allTempsF;
+
+  function showF() {
+    todayTemp.style.display = 'none';
+
+    todayTempF.style.display = 'inline-block';
+
+    feelsLike.style.display = 'none';
+
+    feelsLikeF.style.display = 'inline-block';
+
+    maxTemp.style.display = 'none';
+
+    maxTempF.style.display = 'inline-block';
+
+    minTemp.style.display = 'none';
+
+    minTempF.style.display = 'inline-block';
+
+    const degreesRow = document.getElementById('degreesRow');
+    degreesRow.style.display = 'none';
+
+    const fahrenRow = document.getElementById('fahrenRow');
+    fahrenRow.style.display = 'table-row';
+
+    const numbers = [0, 1, 2, 3, 4, 5, 6];
+    numbers.forEach((num) => {
+      const degreesColumn = document.getElementsByClassName('degreesColumn');
+      degreesColumn[num].style.display = 'none';
+
+      const fahrenColumn = document.getElementsByClassName('fahrenColumn');
+      fahrenColumn[num].style.display = 'table-cell';
+
+      const degreesColumn2 = document.getElementsByClassName('degreesColumn2');
+      degreesColumn2[num].style.display = 'none';
+
+      const fahrenColumn2 = document.getElementsByClassName('fahrenColumn2');
+      fahrenColumn2[num].style.display = 'table-cell';
+    });
+  }
+
+  function displayF() {
+    showF();
+  }
+
+  function showC() {
+    todayTemp.style.display = 'inline-block';
+
+    todayTempF.style.display = 'none';
+
+    feelsLike.style.display = 'inline-block';
+
+    feelsLikeF.style.display = 'none';
+
+    maxTemp.style.display = 'inline-block';
+
+    maxTempF.style.display = 'none';
+
+    minTemp.style.display = 'inline-block';
+
+    minTempF.style.display = 'none';
+
+    const degreesRow = document.getElementById('degreesRow');
+    degreesRow.style.display = 'table-row';
+
+    const fahrenRow = document.getElementById('fahrenRow');
+    fahrenRow.style.display = 'none';
+
+    const numbers = [0, 1, 2, 3, 4, 5, 6];
+    numbers.forEach((num) => {
+      const degreesColumn = document.getElementsByClassName('degreesColumn');
+      degreesColumn[num].style.display = 'table-cell';
+
+      const fahrenColumn = document.getElementsByClassName('fahrenColumn');
+      fahrenColumn[num].style.display = 'none';
+
+      const degreesColumn2 = document.getElementsByClassName('degreesColumn2');
+      degreesColumn2[num].style.display = 'table-cell';
+
+      const fahrenColumn2 = document.getElementsByClassName('fahrenColumn2');
+      fahrenColumn2[num].style.display = 'none';
+    });
+  }
+
+  function displayC() {
+    showC();
+  }
   return {
     locate,
     location,
@@ -83,6 +169,8 @@ const elements = (() => {
     feelsLikeTempF,
     cityMaxTempF,
     cityMinTempF,
+    displayF,
+    displayC,
   };
 })();
 
