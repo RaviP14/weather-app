@@ -89,6 +89,11 @@ import buildTable from './table';
         console.log(value);
         elements.cityText.textContent = value;
       });
+      getData.dataProcess(data, 'weather').then((value) => {
+        console.log(value[0].description);
+        const weather = value[0].description;
+        elements.backgroundChange(weather);
+      });
     });
     elements.locationForm.reset();
   });
