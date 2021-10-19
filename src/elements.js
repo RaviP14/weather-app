@@ -63,6 +63,10 @@ const elements = (() => {
   const allTempsF = document.getElementsByClassName('fahren');
   const fahrenTemps = allTempsF;
 
+  const body = document.querySelector('body');
+  const bod = body;
+  body.style.backgroundColor = '#f5f5f5';
+
   function showF() {
     todayTemp.style.display = 'none';
 
@@ -85,7 +89,7 @@ const elements = (() => {
 
     const fahrenRow = document.getElementById('fahrenRow');
     fahrenRow.style.display = 'table-row';
-
+    // Removes mutation from iteration.
     const numbers = [0, 1, 2, 3, 4, 5, 6];
     numbers.forEach((num) => {
       const degreesColumn = document.getElementsByClassName('degreesColumn');
@@ -128,7 +132,7 @@ const elements = (() => {
 
     const fahrenRow = document.getElementById('fahrenRow');
     fahrenRow.style.display = 'none';
-
+    // Removes mutation from iteration.
     const numbers = [0, 1, 2, 3, 4, 5, 6];
     numbers.forEach((num) => {
       const degreesColumn = document.getElementsByClassName('degreesColumn');
@@ -147,6 +151,35 @@ const elements = (() => {
 
   function displayC() {
     showC();
+  }
+
+  function changeBG(weather) {
+    if (weather === 'clear sky') {
+      body.style.backgroundImage =
+        'linear-gradient(70deg, #ADD8E6, 70%, #87CEEB)';
+    } else if (weather === 'few clouds') {
+      body.style.backgroundImage = 'linear-gradient(70deg, #87CEEB, #d3d3d3)';
+    } else if (weather === 'overcast clouds') {
+      body.style.backgroundImage =
+        'linear-gradient(0deg, #d3d3d3, 70%, #949494)';
+    } else if (weather === 'drizzle') {
+      body.style.backgroundImage = 'linear-gradient(90deg, #224772, #295589)';
+    } else if (weather === 'rain') {
+      body.style.backgroundImage = 'linear-gradient(70deg, #003366, #1c2e4a)';
+    } else if (weather === 'shower rain') {
+      body.style.backgroundImage = 'linear-gradient(70deg, #003366, #1c2e4a)';
+    } else if (weather === 'thunderstorm') {
+      body.style.backgroundImage =
+        'linear-gradient(70deg, ffc622, 15%, #1c2e4a)';
+    } else if (weather === 'snow') {
+      body.style.backgroundImage = 'linear-gradient(70deg, #e0fff, #fffafa)';
+    } else if (weather === 'mist') {
+      body.style.backgroundImage = 'linear-gradient(70deg, #d3d3d3, #bebebe)';
+    }
+  }
+
+  function backgroundChange(weather) {
+    changeBG(weather);
   }
   return {
     locate,
@@ -171,6 +204,8 @@ const elements = (() => {
     cityMinTempF,
     displayF,
     displayC,
+    bod,
+    backgroundChange,
   };
 })();
 
