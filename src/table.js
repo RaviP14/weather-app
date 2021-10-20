@@ -2,10 +2,11 @@ import getData from './data';
 
 const buildTable = (() => {
   // Table for hourly data.
-  function newTable(table, array, key) {
+  function newTable(table, array, key, key2, key3, num) {
     const row = table.insertRow(0);
-    const row2 = table.insertRow(1);
-    const row3 = table.insertRow(2);
+    const rowIcon = table.insertRow(1);
+    const row2 = table.insertRow(2);
+    const row3 = table.insertRow(3);
     let currentTime = getData.hourNow();
     let time = 0;
     let now = true;
@@ -22,10 +23,19 @@ const buildTable = (() => {
         currentTime = 0;
         val1.textContent = currentTime;
       }
+      // Get icon code & add to table.
+      const icon = element[key2][num][key3];
+      const valIcon = rowIcon.insertCell();
+      const imgIcon = document.createElement('img');
+      imgIcon.className = 'icons';
+      imgIcon.style.width = '50px';
+      imgIcon.style.height = '50px';
+      imgIcon.src = `/dist/images/icons/${icon}.png`;
+      valIcon.appendChild(imgIcon);
+
       const val2 = row2.insertCell();
       val2.textContent = `${Math.round(element[key])}\u00B0`;
       row2.id = 'degreesRow';
-
       const val2F = row3.insertCell();
       const f = getData.fahrenheit(Math.round(parseFloat(element[key])));
       val2F.textContent = `${Math.round(f)}\u00B0`;
@@ -37,9 +47,9 @@ const buildTable = (() => {
     });
   }
 
-  async function table1(table, array, key) {
+  async function table1(table, array, key, key2, key3, num) {
     try {
-      const tableHours = await newTable(table, array, key);
+      const tableHours = await newTable(table, array, key, key2, key3, num);
       return tableHours;
     } catch (err) {
       console.log(err);
@@ -47,12 +57,15 @@ const buildTable = (() => {
     }
   }
   // Table for daily data.
-  function newTableDays(table, array, key1, key2, key3, key4) {
+  function newTableDays(table, array, key1, key2, key3, key4, key5, key6, num) {
     let nextDay = getData.today() + 1;
     const arrDays = getData.weekdays;
     const headings = table.insertRow(0);
     const head1 = headings.insertCell();
     head1.textContent = 'day';
+
+    const headIcon = headings.insertCell();
+    headIcon.className = 'headIcon';
 
     const head2 = headings.insertCell();
     head2.textContent = 'Chance Of Rain';
@@ -78,6 +91,15 @@ const buildTable = (() => {
           val1.textContent = arrDays[nextDay];
           nextDay += 1;
         }
+        // Get icon code & add to table.
+        const icon = element[key5][num][key6];
+        const valIcon = row.insertCell();
+        const imgIcon = document.createElement('img');
+        imgIcon.className = 'icons';
+        imgIcon.style.width = '50px';
+        imgIcon.style.height = '50px';
+        imgIcon.src = `/dist/images/icons/${icon}.png`;
+        valIcon.appendChild(imgIcon);
 
         const val2 = row.insertCell();
         // Chance of rain
@@ -116,7 +138,7 @@ const buildTable = (() => {
     });
   }
 
-  async function table2(table, array, key1, key2, key3, key4) {
+  async function table2(table, array, key1, key2, key3, key4, key5, key6, num) {
     try {
       const tableDays = await newTableDays(
         table,
@@ -124,7 +146,10 @@ const buildTable = (() => {
         key1,
         key2,
         key3,
-        key4
+        key4,
+        key5,
+        key6,
+        num
       );
       return tableDays;
     } catch (err) {
