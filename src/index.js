@@ -69,7 +69,7 @@ import buildTable from './table';
           getData.dataProcess(forecast, 'hourly').then((hours) => {
             const table = elements.tableHours;
             // Create hourly table.
-            buildTable.table1(table, hours, 'temp');
+            buildTable.table1(table, hours, 'temp', 'weather', 'icon', 0);
           });
         });
         weatherInfo.then((forecast) => {
@@ -78,7 +78,17 @@ import buildTable from './table';
             console.log(days);
             const table = elements.tableDays;
             // Create daily table.
-            buildTable.table2(table, days, 'pop', 'temp', 'min', 'max');
+            buildTable.table2(
+              table,
+              days,
+              'pop',
+              'temp',
+              'min',
+              'max',
+              'weather',
+              'icon',
+              0
+            );
           });
         });
       });
