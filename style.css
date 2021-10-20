@@ -2,3 +2,25 @@ html {
   min-height: 100%;
   min-width: 100%;
 }
+
+#tableHours {
+  height: 4rem;
+  table-layout: fixed;
+}
+
+#tableHours tr {
+  height: 1rem;
+}
+
+#tableHours td {
+  width: 1rem;
+  height: 1rem;
+  white-space: nowrap;
+}
+
+#divHours {
+  width: 90%;
+  height: 8rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
