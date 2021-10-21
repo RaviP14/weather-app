@@ -2,7 +2,7 @@ import getWeather from './weather';
 import getData from './data';
 import elements from './elements';
 import buildTable from './table';
-// test and add build table to the 2nd api(hourly forecast) & add a table to index.html
+
 (() => {
   function getAllWeather(location) {
     getWeather.temp1(location, 'metric').then((data) => {
@@ -39,6 +39,7 @@ import buildTable from './table';
         elements.cityMinTempF.textContent = `${Math.round(f4)}\u00B0`;
         elements.cityMinTempF.style.display = 'none';
       });
+
       getData.dataProcess(data, 'coord').then((value) => {
         console.log(value);
         const latitude = value.lat;
@@ -50,6 +51,7 @@ import buildTable from './table';
           'metric',
           'minutely'
         );
+
         weatherInfo.then((forecast) => {
           console.log(forecast);
           // Filter for hourly data.
@@ -59,6 +61,7 @@ import buildTable from './table';
             buildTable.table1(table, hours, 'temp', 'weather', 'icon', 0);
           });
         });
+
         weatherInfo.then((forecast) => {
           // Filter for daily data.
           getData.dataProcess(forecast, 'daily').then((days) => {
@@ -79,13 +82,12 @@ import buildTable from './table';
           });
         });
       });
-      getData.dataProcess(data, 'sys').then((value) => {
-        console.log(value);
-      });
+
       getData.dataProcess(data, 'name').then((value) => {
         console.log(value);
         elements.cityText.textContent = value;
       });
+
       getData.dataProcess(data, 'weather').then((value) => {
         console.log(value[0].description);
         const weather = value[0].description;
@@ -93,6 +95,8 @@ import buildTable from './table';
       });
     });
   }
+
+  window.onload = getAllWeather('london');
 
   elements.locate.addEventListener('click', (e) => {
     e.preventDefault();
