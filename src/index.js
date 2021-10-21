@@ -4,21 +4,8 @@ import elements from './elements';
 import buildTable from './table';
 // test and add build table to the 2nd api(hourly forecast) & add a table to index.html
 (() => {
-  elements.locate.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (
-      elements.tableHours.hasChildNodes() &&
-      elements.tableDays.hasChildNodes()
-    ) {
-      elements.tableHours.removeChild(elements.tableHours.firstChild);
-      elements.tableDays.removeChild(elements.tableDays.firstChild);
-      elements.changeUnit.value = 'C';
-    }
-    // Add this(all below) to a function so event listener is cleaner.
-    const find = elements.location.value;
-    const string = find.toLowerCase();
-
-    getWeather.temp1(string, 'metric').then((data) => {
+  function getAllWeather(location) {
+    getWeather.temp1(location, 'metric').then((data) => {
       console.log(data);
 
       getData.dataProcess(data, 'main').then((value) => {
@@ -105,8 +92,25 @@ import buildTable from './table';
         elements.backgroundChange(weather);
       });
     });
+  }
+
+  elements.locate.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (
+      elements.tableHours.hasChildNodes() &&
+      elements.tableDays.hasChildNodes()
+    ) {
+      elements.tableHours.removeChild(elements.tableHours.firstChild);
+      elements.tableDays.removeChild(elements.tableDays.firstChild);
+      elements.changeUnit.value = 'C';
+    }
+
+    const find = elements.location.value;
+    const string = find.toLowerCase();
+    getAllWeather(string);
     elements.locationForm.reset();
   });
+
   elements.changeUnit.addEventListener('click', () => {
     if (
       elements.tableHours.hasChildNodes() &&
