@@ -3,6 +3,93 @@ html {
   min-width: 100%;
 }
 
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+}
+
+#topbarDiv {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  background-color: #444444;
+  box-shadow: 0 0.05em 0.25em 0 rgba(0, 0, 0, 0.35);
+  width: 100%;
+  overflow: hidden;
+}
+
+#searchForm {
+  margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+  width: 100%;
+  display: inline-flex;
+  position: fixed;
+}
+
+#searchInputLabel {
+  color: #ffffff;
+  margin-left: 1rem;
+  text-align: right;
+}
+#searchInput {
+  border: none;
+  width: 18rem;
+  height: 2rem;
+  box-sizing: border-box;
+  vertical-align: top;
+  border-radius: 0.2rem 0 0 0.2rem;
+  border: 1px solid darken(#f5f5f5f5, 30%);
+  background-color: #f5f5f5f5;
+}
+
+#searchbtn {
+  border: none;
+  cursor: pointer;
+  margin-left: -0.3rem;
+  padding: 0.32rem 0.4rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+  background-color: #f5f5f5f5;
+  border: 0.1rem solid #f5f5f5f5;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s;
+  color: none;
+}
+
+#searchbtn:hover {
+  color: #f5f5f5f5;
+  background: none;
+  box-shadow: -0.01rem 0.01rem 0.05rem 0 rgba(0, 0, 0, 0.35);
+}
+
+#ctempDiv {
+  margin: 0.4rem 1rem 0.4rem 0.4rem;
+  width: 5%;
+  z-index: 1;
+}
+
+#ctempbtn {
+  cursor: pointer;
+  display: inline-flex;
+  padding: 0.2rem 0.8rem;
+  border: 0.1rem solid #ffffff;
+  margin: 0rem 0rem 0.3rem 0;
+  border-radius: 0.12rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.2s;
+  background: none;
+}
+
+#ctempbtn:hover {
+  color: #000000;
+  background-color: #ffffff;
+}
+
 #tableHours {
   height: 4rem;
   table-layout: fixed;
