@@ -28,8 +28,8 @@ const buildTable = (() => {
       const valIcon = rowIcon.insertCell();
       const imgIcon = document.createElement('img');
       imgIcon.className = 'icons';
-      imgIcon.style.width = '50px';
-      imgIcon.style.height = '50px';
+      imgIcon.style.width = '3.125rem';
+      imgIcon.style.height = '3.125rem';
       imgIcon.src = `/dist/images/icons/${icon}.png`;
       valIcon.appendChild(imgIcon);
 
