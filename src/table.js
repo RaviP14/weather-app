@@ -62,7 +62,7 @@ const buildTable = (() => {
     const arrDays = getData.weekdays;
     const headings = table.insertRow(0);
     const head1 = headings.insertCell();
-    head1.textContent = 'day';
+    head1.textContent = 'Day';
 
     const headIcon = headings.insertCell();
     headIcon.className = 'headIcon';

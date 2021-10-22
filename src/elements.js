@@ -112,6 +112,7 @@ const elements = (() => {
 
   function showC() {
     todayTemp.style.display = 'inline-block';
+    todayTemp.style.marginTop = '2.5rem';
 
     todayTempF.style.display = 'none';
 
