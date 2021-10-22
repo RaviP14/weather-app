@@ -90,6 +90,66 @@ body {
   background-color: #ffffff;
 }
 
+#mainContent {
+  display: block;
+  text-align: center;
+}
+
+#location {
+  margin: 0 0.8rem -4rem 0rem;
+}
+#locationText {
+  font-size: 1.5rem;
+}
+
+#todayDiv {
+  font-size: 4rem;
+  margin: 0 0 -5rem 0;
+}
+
+#feelsLikeDiv {
+  font-size: 1rem;
+  margin: 0 0 0 0;
+}
+
+#feelsLike {
+  display: inline-block;
+}
+
+#feelsLikeF {
+  display: inline-block;
+}
+
+#minMax {
+  text-align: center;
+  margin: -1.8rem 0 2rem 0;
+}
+
+#maxTempDiv {
+  display: inline;
+  margin: 0 0.1rem 0 0;
+}
+
+#maxTemp {
+  display: inline-block;
+}
+
+#maxTempF {
+  display: inline-block;
+}
+
+#minTempDiv {
+  display: inline;
+  margin: 0 0 0 0.1rem;
+}
+#minTemp {
+  display: inline-block;
+}
+
+#minTempF {
+  display: inline-block;
+}
+
 #tableHours {
   height: 4rem;
   table-layout: fixed;
@@ -110,4 +170,20 @@ body {
   height: 8rem;
   overflow-x: scroll;
   overflow-y: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+#divDays {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  border: 1px solid black;
+}
+
+#tableDays {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
