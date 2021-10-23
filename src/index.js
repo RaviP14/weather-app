@@ -89,8 +89,8 @@ import buildTable from './table';
       });
 
       getData.dataProcess(data, 'weather').then((value) => {
-        console.log(value[0].description);
-        const weather = value[0].description;
+        console.log(value[0].id);
+        const weather = value[0].id;
         elements.backgroundChange(weather);
       });
     });
