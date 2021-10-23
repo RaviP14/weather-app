@@ -108,6 +108,7 @@ import buildTable from './table';
       elements.tableDays.removeChild(elements.tableDays.firstChild);
 
       elements.changeUnit.value = 'C';
+      elements.changeUnit.textContent = '\u00B0F';
 
       elements.cityTempF.style.display = 'none';
       elements.cityTemp.style.display = 'inline-block';
