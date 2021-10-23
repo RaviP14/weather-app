@@ -176,8 +176,8 @@ const elements = (() => {
       body.style.color = '#ffffff';
     } else if (weather >= 200 && weather <= 232) {
       body.style.backgroundImage =
-        'linear-gradient(70deg, ffc622, 15%, #1c2e4a)';
-      body.style.color = '#000000';
+        'linear-gradient(70deg, #ffc622, 15%, #1c2e4a)';
+      body.style.color = '#ffffff';
     } else if (weather >= 600 && weather <= 622) {
       body.style.backgroundImage = 'linear-gradient(70deg, #e0ffff, #fffafa)';
       body.style.color = '#000000';
