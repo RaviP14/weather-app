@@ -173,9 +173,15 @@ const elements = (() => {
       body.style.backgroundImage =
         'linear-gradient(70deg, ffc622, 15%, #1c2e4a)';
     } else if (weather === 'snow') {
-      body.style.backgroundImage = 'linear-gradient(70deg, #e0fff, #fffafa)';
+      body.style.backgroundImage = 'linear-gradient(70deg, #e0ffff, #fffafa)';
     } else if (weather === 'mist') {
       body.style.backgroundImage = 'linear-gradient(70deg, #d3d3d3, #bebebe)';
+    } else if (weather === 'broken clouds') {
+      body.style.backgroundImage = 'linear-gradient(70deg, #87CEEB, #d3d3d3)';
+    } else if (weather === 'scattered clouds') {
+      body.style.backgroundImage = 'linear-gradient(70deg, #87CEEB, #bebebe)';
+    } else {
+      body.style.backgroundImage = 'linear-gradient(70deg, #656565, #d3d3d3)';
     }
   }
 
