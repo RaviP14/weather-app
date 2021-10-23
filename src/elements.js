@@ -155,33 +155,47 @@ const elements = (() => {
   }
 
   function changeBG(weather) {
-    if (weather === 'clear sky') {
+    if (weather === 800) {
       body.style.backgroundImage =
         'linear-gradient(70deg, #ADD8E6, 70%, #87CEEB)';
-    } else if (weather === 'few clouds') {
+      body.style.color = '#000000';
+    } else if (weather === 801) {
       body.style.backgroundImage = 'linear-gradient(70deg, #87CEEB, #d3d3d3)';
-    } else if (weather === 'overcast clouds') {
+      body.style.color = '#000000';
+    } else if (weather === 804) {
       body.style.backgroundImage =
         'linear-gradient(0deg, #d3d3d3, 70%, #949494)';
-    } else if (weather === 'drizzle') {
+    } else if (weather >= 300 && weather <= 321) {
       body.style.backgroundImage = 'linear-gradient(90deg, #224772, #295589)';
-    } else if (weather === 'rain') {
+      body.style.color = '#000000';
+    } else if (weather >= 500 && weather <= 511) {
       body.style.backgroundImage = 'linear-gradient(70deg, #003366, #1c2e4a)';
-    } else if (weather === 'shower rain') {
+      body.style.color = '#ffffff';
+    } else if (weather >= 520 && weather <= 531) {
       body.style.backgroundImage = 'linear-gradient(70deg, #003366, #1c2e4a)';
-    } else if (weather === 'thunderstorm') {
+      body.style.color = '#ffffff';
+    } else if (weather >= 200 && weather <= 232) {
       body.style.backgroundImage =
         'linear-gradient(70deg, ffc622, 15%, #1c2e4a)';
-    } else if (weather === 'snow') {
+      body.style.color = '#000000';
+    } else if (weather >= 600 && weather <= 622) {
       body.style.backgroundImage = 'linear-gradient(70deg, #e0ffff, #fffafa)';
-    } else if (weather === 'mist') {
+      body.style.color = '#000000';
+    } else if (weather === 741 || (weather >= 701 && weather <= 721)) {
       body.style.backgroundImage = 'linear-gradient(70deg, #d3d3d3, #bebebe)';
-    } else if (weather === 'broken clouds') {
+      body.style.color = '#000000';
+    } else if (weather === 803) {
       body.style.backgroundImage = 'linear-gradient(70deg, #87CEEB, #d3d3d3)';
-    } else if (weather === 'scattered clouds') {
+      body.style.color = '#000000';
+    } else if (weather === 802) {
       body.style.backgroundImage = 'linear-gradient(70deg, #87CEEB, #bebebe)';
-    } else {
+      body.style.color = '#000000';
+    } else if (weather >= 762 && weather <= 781) {
       body.style.backgroundImage = 'linear-gradient(70deg, #656565, #d3d3d3)';
+      body.style.color = '#000000';
+    } else if (weather === 731 || weather === 761) {
+      body.style.backgroundImage = 'linear-gradient(70deg, #bebebe, #f0dd97)';
+      body.style.color = '#000000';
     }
   }
 
