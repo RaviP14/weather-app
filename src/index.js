@@ -106,7 +106,21 @@ import buildTable from './table';
     ) {
       elements.tableHours.removeChild(elements.tableHours.firstChild);
       elements.tableDays.removeChild(elements.tableDays.firstChild);
+
       elements.changeUnit.value = 'C';
+
+      elements.cityTempF.style.display = 'none';
+      elements.cityTemp.style.display = 'inline-block';
+      elements.cityTemp.style.marginTop = '2.5rem';
+
+      elements.feelsLikeTempF.style.display = 'none';
+      elements.feelsLikeTemp.style.display = 'inline-block';
+
+      elements.cityMaxTempF.style.display = 'none';
+      elements.cityMaxTemp.style.display = 'inline-block';
+
+      elements.cityMinTempF.style.display = 'none';
+      elements.cityMinTemp.style.display = 'inline-block';
     }
 
     const find = elements.location.value;
