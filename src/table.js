@@ -30,7 +30,7 @@ const buildTable = (() => {
       imgIcon.className = 'icons';
       imgIcon.style.width = '3.125rem';
       imgIcon.style.height = '3.125rem';
-      imgIcon.src = `/dist/images/icons/${icon}.png`;
+      imgIcon.src = `images/icons/${icon}.png`;
       valIcon.appendChild(imgIcon);
 
       const val2 = row2.insertCell();
@@ -98,7 +98,7 @@ const buildTable = (() => {
         imgIcon.className = 'icons';
         imgIcon.style.width = '50px';
         imgIcon.style.height = '50px';
-        imgIcon.src = `/dist/images/icons/${icon}.png`;
+        imgIcon.src = `images/icons/${icon}.png`;
         valIcon.appendChild(imgIcon);
 
         const val2 = row.insertCell();
