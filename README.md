@@ -24,3 +24,4 @@ Live preview is available <a href="https://ravip14.github.io/weather-app/">here<
 - The background and text change colour based on weather conditions.
 - The icons show the weather conditions of each day and hour.
 - The topbar houses the search box, search button and Celcius/Fahrenheit toggle.
+- The design is responsive - width can adapt to window size from 450px wide.
